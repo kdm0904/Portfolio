@@ -1,0 +1,18 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+    <servlet>
+        <servlet-name>animal-servlet</servlet-name>
+        <servlet-class>AnimalServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>animal-servlet</servlet-name>
+        <url-pattern>/ptest/animal</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>result-servlet</servlet-name>
+        <servlet-class>ResultServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>result-servlet</servlet-name>
+        <url-pattern>/ptest/result</url-pattern>
+    </servlet-mapping>
+</web-app> 

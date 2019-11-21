@@ -1,0 +1,34 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+    <servlet>
+        <servlet-name>hundred-servlet</servlet-name>
+        <servlet-class>HundredServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>hundred-servlet</servlet-name>
+        <url-pattern>/hundred</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>adder-servlet</servlet-name>
+        <servlet-class>AdderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adder-servlet</servlet-name>
+        <url-pattern>/adder</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>bbs-post-servlet</servlet-name>
+        <servlet-class>BBSPostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bbs-post-servlet</servlet-name>
+        <url-pattern>/bbs-post</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>personal-info-servlet</servlet-name>
+        <servlet-class>PersonalInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>personal-info-servlet</servlet-name>
+        <url-pattern>/pinfo-result</url-pattern>
+    </servlet-mapping>
+</web-app> 

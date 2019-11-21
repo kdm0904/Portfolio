@@ -1,0 +1,7 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+    <listener>
+        <listener-class>mylistener.MySessionListener</listener-class>
+        <listener-class>mylistener.MyApplicationAttributeListener</listener-class>
+    </listener>
+</web-app>
+
