@@ -1,0 +1,45 @@
+<?php 
+                include 'userData.php';
+                $conn = dbConnection();
+                
+                $sql = "select * from `board` commit order by bno desc";
+                $result = mysqli_query($conn, $sql);
+                $total = mysqli_num_rows($result);
+                
+                $page_num = 10;
+                $block_num = 10;
+                $page = $_GET['page'] ? intval($_GET['page']) : 1;
+                $totalPage=ceil($total/$page_num);
+
+                $start_page = max($page-$block_num, 1);
+                $end_page = min($page+$block_num, $totalPage);
+                $prev_page = max($start_page-$block_num-1, 1);
+                $next_page = min($end_page+$block_num+1, $totalPage);
+                $offset = ( $page - 1 )*$page_num;
+                
+                $sql = "select * from `board` commit order by bno desc limit $offset, $page_num";
+                $result = mysqli_query($conn, $sql);
+                echo $total;
+                while($rows=mysqli_fetch_array($result)) {
+?>
+<div class='paging_area'>
+        <?php if( $start_page > 1 ): ?>
+        <a class='move_btn' href="<?= "$PHP_SELP?page=$prev_page" ?>">« 이전</a>
+        <a class='pagenum' href="<?= "$PHP_SELP?page=1" ?>">1</a> ...
+        <?php else: ?>
+        <span class='move_btn disabled'>« 이전</span>
+        <?php endif ?>
+
+        <?php for( $p = $start_page; $p <= $end_page; $p++ ): ?>
+        <a class='pagenum <?= ( $p == $page )?"current":"" ?>' href="<?= "$PHP_SELP?page=$p" ?>">
+            <?= $p ?>
+        </a>
+        <?php endfor ?>
+
+        <?php if( $end_page < $totalPage ): ?>
+        <a class='pagenum' href="<?= "$PHP_SELP?page=$totalPage" ?>"><?= $page_count ?></a>
+        <a class='move_btn' href="<?= "$PHP_SELP?page=$next_page" ?>">다음 »</a>
+        <?php else: ?>
+        <span class='move_btn disabled'>다음 »</span>
+        <?php endif ?>
+</div>

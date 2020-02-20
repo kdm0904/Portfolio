@@ -10,7 +10,7 @@ $result = mysqli_query($conn, $sql);
 if($result === false){
     echo mysqli_error($conn);
 } else{
-    echo "<script>location.href='board.php';</script>";
+    echo "<script>location.href='/boardtest/board.php';</script>";
 }
 
 ?>

@@ -10,8 +10,8 @@
         session_start();    
     ?>
     <?php if((!isset($_SESSION['id']))&&(!isset($_SESSION['nickname']))) {?>
-        <a href="join.html">회원가입</a><br>
-        <a href="login.html">로그인</a><br>
+        <a href="/boardtest/join.html">회원가입</a> &nbsp;
+        <a href="/boardtest/login.html">로그인</a> &nbsp;
     <?php } else {
                 // $userId=$_SESSION['id'];
                 // $conn = mysqli_connect("localhost", "root", "wpdbs1234", "web", 3307);
@@ -21,9 +21,9 @@
                 include 'userData.php';
                 $row = userData();    
     ?>
-        <a href="logout.php">로그아웃</a>
-        <b><?php echo $row['nickname']?>님 환영합니다.</b><br>
+        <a href="/boardtest/logout.php">로그아웃</a> &nbsp;
+        <b><?php echo $row['nickname']?>님 환영합니다.</b> &nbsp;
     <?php } ?> 
-    <a href="board.php">게시판</a>   
+    <a href="/boardtest/board.php">게시판</a>   
 </body>
 </html>

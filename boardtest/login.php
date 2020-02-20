@@ -13,14 +13,14 @@ if($result -> num_rows>0){
     $_SESSION['nickname'] = $row["nickname"];
     //로그인 세션 확인
     if(isset($_SESSION['id'])&& isset($_SESSION['nickname'])){
-        echo "<script>location.href='main.php';</script>";
+        echo "<script>location.href='/boardtest/main.php';</script>";
     } else{
         echo "<script>alert('아이디와 비밀번호를 다시 확인해주세요!'); 
-              location.href='login.html';</script>";
+              location.href='/boardtest/login.html';</script>";
     }
 } else{
     echo "<script>alert('아이디와 비밀번호를 다시 확인해주세요!');
-           location.href='login.html';</script>";
+           location.href='/boardtest/login.html';</script>";
 } 
 
 ?>

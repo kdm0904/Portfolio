@@ -10,14 +10,19 @@
         session_start();
     ?>
     <?php if((!isset($_SESSION['id']))&&(!isset($_SESSION['nickname']))) {?>
-        <a href="join.html">회원가입</a><br>
-        <a href="login.html">로그인</a><br>
+        <a href="/boardtest/join.html">회원가입</a> &nbsp;
+        <a href="/boardtest/login.html">로그인</a> &nbsp;
     <?php } else {?>
-        <a href="logout.php">로그아웃</a><br>
+        <a href="logout.php">로그아웃</a> &nbsp;
     <?php } ?> 
     <a href="board.php">게시판</a> <br>
-    <?php include 'userData.php';
-                $row = userData(); ?>
+    <?php if((!isset($_SESSION['id']))&&(!isset($_SESSION['nickname']))) {?>
+    <script>
+        alert("로그인을 해야 글을 작성할 수 있습니다.");
+        history.back();
+    </script>
+    <?php } else {include 'userData.php';
+            $row = userData(); ?>
     <form method="post" action="boardWriting.php">
         <label>제목</label>
         <input type="text" id="title" name="title">
@@ -30,7 +35,7 @@
         -->
         <input type="submit" style="border:1px solid;" value="게시물 등록">
     </form>
-
+    <?php } ?>
     
 </body>
 </html>

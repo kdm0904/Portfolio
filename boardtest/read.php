@@ -12,12 +12,12 @@
         
     ?>
     <?php if((!isset($_SESSION['id']))&&(!isset($_SESSION['nickname']))) {?>
-        <a href="join.html">회원가입</a><br>
-        <a href="login.html">로그인</a><br>
+        <a href="/boardtest/join.html">회원가입</a> &nbsp;
+        <a href="/boardtest/login.html">로그인</a> &nbsp;
     <?php } else {?>
-        <a href="logout.php">로그아웃</a><br>
+        <a href="/boardtest/logout.php">로그아웃</a> &nbsp;
     <?php } ?> 
-    <a href="board.php">게시판</a> <br>
+    <a href="/boardtest/board.php">게시판</a> <br>
     <?php 
         $bno = $_GET['bno'];
         include 'userData.php';
@@ -34,8 +34,10 @@
         작성일 : <input type="text" id="regdate" name="regdate" value="<?php echo $row['regdate']?>" readonly=readonly><br>
         <!-- 본문 : <input type="textarea" id="contents" name="contents" value="" readonly=readonly></br> -->
         본문 : <textarea id="contents" name="contents" readonly=readonly><?php echo $row['contents']?></textarea><br>
+        <?php if(isset($_SESSION['id'])) {?>
         <button id="update_btn">수정</button>
         <button id="delete_btn">삭제</button>
+        <?php } ?>
     </form>    
     
 
@@ -44,14 +46,14 @@
         let form = $("form[role='form']");
         
         $("#update_btn").click(function(){    
-            form.attr("action", "boardUpdate.php");
+            form.attr("action", "/boardtest/boardUpdate.php");
             form.attr("method", "post");  
             form.submit();     
         });
         
         
         $("#delete_btn").click(function(){
-            form.attr("action", "boardDelete.php");
+            form.attr("action", "/boardtest/boardDelete.php");
             form.attr("method", "post");  
             form.submit();    
         });
